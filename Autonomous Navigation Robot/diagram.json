@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "author": "Md Sourov",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 48, "left": 91.24, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -94.5, "left": -32.9, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 207.6,
+      "left": -188.2,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 130.8,
+      "left": -169,
+      "attrs": { "color": "purple" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 63.6,
+      "left": -178.6,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led4",
+      "top": -13.2,
+      "left": -188.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 42.35,
+      "left": -134.4,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 109.55,
+      "left": -144,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 176.75,
+      "left": -153.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 253.55,
+      "left": -134.4,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "ultrasonic1:GND", "black", [ "v0" ] ],
+    [ "esp:5V", "ultrasonic1:VCC", "red", [ "h-57.45", "v-201.6", "h-28.8" ] ],
+    [ "esp:5", "ultrasonic1:TRIG", "green", [ "h0" ] ],
+    [ "esp:18", "ultrasonic1:ECHO", "yellow", [ "h0" ] ],
+    [ "led4:A", "r1:1", "red", [ "v0" ] ],
+    [ "led3:A", "r2:1", "blue", [ "v0" ] ],
+    [ "led2:A", "r3:1", "purple", [ "v0" ] ],
+    [ "led1:A", "r4:1", "green", [ "v0" ] ],
+    [ "esp:GND.1", "led4:C", "black", [ "h0" ] ],
+    [ "led3:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "led2:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "led1:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "r1:2", "esp:12", "red", [ "v0" ] ],
+    [ "r2:2", "esp:13", "blue", [ "v0" ] ],
+    [ "r3:2", "esp:14", "purple", [ "v0" ] ],
+    [ "r4:2", "esp:27", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
